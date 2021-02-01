@@ -249,9 +249,37 @@ body {
   flex-grow: 2;
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
+  /* display: flex;
+  flex-direction: column; */
 }
 
+.text_line_sent {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.text_line_received {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sent {
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.received {
+  background-color: #ffffff;
+  display: flex;
+  width: 200px;
+  justify-content: flex-start;
+  border-radius: 10px;
+}
 
 /* right side input--------------------------------------- */
 .input_box {
