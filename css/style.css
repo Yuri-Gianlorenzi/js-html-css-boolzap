@@ -4,12 +4,13 @@
   box-sizing: border-box;
 }
 
-/* GENERAL BODY---------------------------------------------- */
+/* GENERAL BODY========================================================*/
 body {
   background-color: #dadbd4;
   position: relative;
   display: flex;
   justify-content: center;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 /* per la riga verde in background */
@@ -20,9 +21,9 @@ body {
   z-index: -1;
 }
 
-/* / FINE GENERAL BODY------------------------------------------- */
+/* / FINE GENERAL BODY============================================ */
 
-/* CONTAINER PRINCIPALE------------------------------------------ */
+/* CONTAINER PRINCIPALE================================================*/
 .container {
   position: absolute;
   top: 30px;
@@ -30,37 +31,125 @@ body {
   width: 80%;
   height: 700px;
   margin: auto;
-  background-color: grey;
+  background-color: #fafafa;
   display: flex;
 }
 
-/* container sinistro ----------------------------------- */
+/* container sinistro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 .container_left {
-  /* background-color: blue; */
   height: 100%;
   width: 35%;
   display: flex;
   flex-direction: column;
 }
 
+/* header sinistro------------------------------------------ */
 .header_left {
   width: 100%;
   height: 80px;
-  background-color: yellow;
+  background-color: #eaeaea;
+  display: flex;
 }
 
+
+.box_user {
+  height: 100%;
+  flex-grow: 2;
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+}
+
+.box_user img {
+  height: 60px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.box_user .name_user {
+  margin-left: 15px;
+}
+
+
+.action_user {
+  height: 100%;
+  width: 30%;
+}
+
+.action_user ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.action_user ul li {
+  flex-basis: 100% / 3;
+  color: #b1b1b1;
+  list-style: none;
+  font-size: 22px;
+}
+
+
+
+
+/* notifiche sinistro ------------------------------------------------ */
 .notification_left {
   width: 100%;
   height: 80px;
-  background-color: green;
+  background-color: #8edafc;
+  display: flex;
+  align-items: center;
 }
 
+.notification_icon {
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.notification_icon i {
+  font-size: 25px;
+  color: #8edafc;
+}
+
+.notification_action a {
+  color: #4f7485;
+}
+
+
+/* ricerca sinistro ------------------------------------------------------- */
 .search_left {
-  width: 100%;
-  height: 60px;
-  background-color: blue;
+  width: 100% - 14px;
+  height: 50px;
+  background-color: white;
+  margin: 7px;
+  border: 0.1px solid #fafafa;
+  display: flex;
+  align-items: center;
 }
 
+.search_left i {
+  font-size: 20px;
+  color: #b1b1b1;
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
+
+.search_left input {
+  flex-grow: 2;
+  border: white;
+  height: 30px;
+}
+
+::placeholder {
+  color: #c3c3c3;
+  opacity: 1;
+}
+/* cronologia chat sinistro ---------------------------------------------------- */
 .chat_chronology {
   flex-grow: 2;
   width: 100%;
@@ -68,7 +157,7 @@ body {
 }
 
 
-/* container destro ------------------------------------- */
+/* container destro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 .container_right {
   /* background-color: red; */
   height: 100%;
@@ -94,3 +183,17 @@ body {
   height: 80px;
   background-color: greenyellow;
 }
+
+
+
+
+
+
+/* FONTAWESOME */
+
+/* refresh */
+/* <i class="fas fa-sync-alt"></i> */
+
+
+/* message */
+/* <i class="fas fa-comment-alt"></i> */
