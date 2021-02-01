@@ -15,6 +15,8 @@ body {
   font-family: 'Hind Siliguri', sans-serif;
 }
 
+
+/* REGOLE GENERALI CURSORI */
 i {
   cursor: pointer;
 }
@@ -44,8 +46,10 @@ img {
   background-color: #fafafa;
   display: flex;
 }
+/* per il layout viene diviso il container generale in 2 colonne */
 
-/* container sinistro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+
+/* WARNING CONTAINER SINISTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 .container_left {
   height: 100%;
   width: 35%;
@@ -53,7 +57,7 @@ img {
   flex-direction: column;
 }
 
-/* header sinistro------------------------------------------ */
+/* HEADER SINISTRO------------------------------------------ */
 .header_left {
   width: 100%;
   min-height: 80px;
@@ -65,7 +69,6 @@ img {
 .header_left .box_user {
   height: 100%;
   flex-grow: 2;
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
 }
@@ -103,7 +106,7 @@ img {
 
 
 
-/* notifiche sinistro ------------------------------------------------ */
+/* NOTIFICHE SINISTRO ------------------------------------------------ */
 .notification_left {
   width: 100%;
   height: 80px;
@@ -130,7 +133,7 @@ img {
 }
 
 
-/* ricerca sinistro ------------------------------------------------------- */
+/* RICERCA SINISTRO ------------------------------------------------------- */
 .search_left {
   width: calc( 100% - 14px );
   height: 50px;
@@ -155,11 +158,12 @@ img {
   height: 30px;
 }
 
+/* per eliminare il bordino che si forma quando viene selezionato l'input */
 .search_left input:focus {
   outline-width: 0;
-  /* padding-left: 10px; */
 }
 
+/* per colorare il suggerimento dell'input */
 ::placeholder {
   color: #c3c3c3;
   opacity: 1;
@@ -167,15 +171,15 @@ img {
 
 
 
-/* cronologia chat sinistro ----------------------------------------------- */
+/* CRONOLOGIA CHAT SINISTRO ----------------------------------------------- */
 
 .chat_chronology {
   flex-grow: 2;
   width: 100%;
-  /* background-color: orange; */
   overflow-y: scroll;
 }
 
+/* per indicare la chat nella lista, selezionata dall'utente per vedere i messaggi */
 .chat_chronology .active {
   background-color: #ebebeb;
 }
@@ -188,6 +192,7 @@ img {
   margin: 3px;
 }
 
+/* per cambiare leggermente il colore quando siamo in hover sulla chat */
 .chat:hover {
   background-color:  #f2f2f2;
 }
@@ -198,6 +203,7 @@ img {
   margin: 10px;
 }
 
+/* per fare in modo che la parte del nome utente e parte del messaggio prendano più spazio possibile */
 .content {
   flex-grow: 2;
 }
@@ -216,6 +222,8 @@ img {
   color: #c1c1c1;
 }
 
+/* per non far vedere le icone silenzia e maggiori info */
+/* ci devo lavorare su per fare in modo che se decido di selenziare, almeno l'icona silenziata deve rimanere */
 .info_icon {
   display: none;
   justify-content: space-between;
@@ -227,7 +235,7 @@ img {
 }
 
 
-
+/* per fare in modo che con l'hover sul box della chat compaiano le 2 icone silenzia e more info */
 .chat:hover .info_icon {
   display: flex;
 }
@@ -239,9 +247,8 @@ img {
 
 
 
-/* container destro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* WARNING CONTAINER DESTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 .container_right {
-  /* background-color: red; */
   height: 100%;
   width: 65%;
   display: flex;
@@ -249,7 +256,7 @@ img {
 }
 
 
-/* header_right------------------------------------ */
+/* HEADER RIGHT------------------------------------ */
 .header_right {
   width: 100%;
   min-height: 80px;
@@ -301,23 +308,25 @@ img {
 }
 
 
-/* right chat box---------------------------------------------- */
+/* CHAT BOX DI DESTRA ---------------------------------------------- */
 .chat_box {
   width: 100%;
   flex-grow: 2;
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
-  /* display: flex;
-  flex-direction: column; */
   font-weight:  lighter;
 }
 
+/* per il box, creiamo 2 classi, che rappresentano un'intera 'riga' del box chat, se è sent, la riga è formattata in maniera tale che il contenuto sia alla destra, mentre se è received, il contenuto della riga sarà a sinistra */
+
+/* classe che indica la riga se è un messaggio inviato */
 .text_line_sent {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
+/* classe che indica la riga se è un messaggio ricevuto */
 .text_line_received {
   width: 100%;
   display: flex;
@@ -325,29 +334,45 @@ img {
   margin: 20px 0px;
 }
 
+/* classe per formattare i box messaggio in generale, per dividere testo e ora*/
 .message {
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
+/* per formattare l'ora in basso a destra */
 .message .timing {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   color: #b1b1b1;
 }
 
+/* per non fare verdere l'icona del more info sul messaggio */
+.timing i {
+  display: none;
+}
+
+/* per aggiungere l'icona more info quando siamo sul box di un qualsiasi messaggio */
+.sent:hover .timing i,
+.received:hover .timing i {
+  display: block;
+  margin-left: 5px;
+}
+
+/* formattazione del contenitore messaggio specifico per quelli inviati dall'utente */
 .sent {
   background-color: #dcf8c6;
   border-radius: 10px;
   max-width: 75%;
   display: flex;
   justify-content: flex-end;
-  margin-right: 20px;
-  margin-top: 10px;
+  margin: 5px 20px 5px 0px;
   position: relative;
 }
 
+/* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore, attualmente è su tutte le nuvolette, provare a metterla solo alla prima di una serie di messaggi della stessa tipologia */
 div.first_s::after {
   content: '';
   width: 0;
@@ -359,17 +384,19 @@ div.first_s::after {
   right: -7px;
 }
 
+
+/* formattazione del contenitore messaggio specifico per quelli ricevuti dall'utente */
 .received {
   background-color: #ffffff;
   display: flex;
   max-width: 75%;
   justify-content: flex-start;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin: 5px 0px 5px 20px;
   position: relative;
 }
 
+/* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore */
 div.first_r::before {
   content: '';
   width: 0;
@@ -381,21 +408,9 @@ div.first_r::before {
   left: -7px;
 }
 
-.timing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.timing i {
-  display: none;
-}
 
-.sent:hover .timing i,
-.received:hover .timing i {
-  display: block;
-  margin-left: 5px;
-}
+
 
 /* right side input--------------------------------------- */
 .input_box {
