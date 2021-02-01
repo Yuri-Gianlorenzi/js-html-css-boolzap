@@ -206,7 +206,7 @@ img {
   color: #4f7485;
 }
 
-.date {
+.info_message {
   padding-right: 15px;
   display: flex;
   flex-direction: column;
@@ -216,10 +216,28 @@ img {
   color: #c1c1c1;
 }
 
-.date i {
+.info_icon {
+  display: none;
+  justify-content: space-between;
+}
+
+.info_icon .silent {
+  margin-right: 6px;
+  display: block;
+}
+
+
+
+.chat:hover .info_icon {
+  display: flex;
+}
+
+.info_icon i {
   color: #c1c1c1;
   font-size: 20px;
 }
+
+
 
 /* container destro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 .container_right {
@@ -361,6 +379,22 @@ div.first_r::before {
   position: absolute;
   top: 0;
   left: -7px;
+}
+
+.timing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timing i {
+  display: none;
+}
+
+.sent:hover .timing i,
+.received:hover .timing i {
+  display: block;
+  margin-left: 5px;
 }
 
 /* right side input--------------------------------------- */
