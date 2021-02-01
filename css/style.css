@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL BODY---------------------------------------------- */
+body {
+  background-color: #dadbd4;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* per la riga verde in background */
+.body_bg {
+  height: 150px;
+  width: 100%;
+  background-color: #009688;
+  z-index: -1;
+}
+
+/* / FINE GENERAL BODY------------------------------------------- */
+
+/* CONTAINER PRINCIPALE------------------------------------------ */
+.container {
+  position: absolute;
+  top: 30px;
+  min-width: 950px;
+  width: 80%;
+  height: 700px;
+  margin: auto;
+  background-color: grey;
+}
