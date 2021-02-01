@@ -440,9 +440,7 @@ div.first_r::before {
 }
 
 .input_box .input_text {
-
   flex-basis: 84%;
-
 }
 
 .input_box .input_text input {
@@ -456,14 +454,4 @@ div.first_r::before {
 /* per togliere la linea quando siamo in focus sull'input */
 .input_box .input_text input:focus {
   outline-width: 0;
-  /* padding-left: 10px; */
 }
-
-/* FONTAWESOME */
-
-/* refresh */
-/* <i class="fas fa-sync-alt"></i> */
-
-
-/* message */
-/* <i class="fas fa-comment-alt"></i> */
