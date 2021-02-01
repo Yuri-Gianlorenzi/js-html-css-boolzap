@@ -6,6 +6,8 @@
 
 /* GENERAL BODY========================================================*/
 body {
+  width: 100vw;
+  height: 100vh;
   background-color: #dadbd4;
   position: relative;
   display: flex;
@@ -126,7 +128,7 @@ body {
   height: 50px;
   background-color: white;
   margin: 7px;
-  border: 0.1px solid #fafafa;
+  border: 0.1px solid rgba(#dedede, 0.75);
   display: flex;
   align-items: center;
 }
@@ -149,13 +151,35 @@ body {
   color: #c3c3c3;
   opacity: 1;
 }
-/* cronologia chat sinistro ---------------------------------------------------- */
+
+
+
+/* cronologia chat sinistro ----------------------------------------------- */
+
 .chat_chronology {
   flex-grow: 2;
   width: 100%;
-  background-color: orange;
+  /* background-color: orange; */
+  overflow-y: scroll;
 }
 
+.chat {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1px solid rgb(222, 222, 222);
+  margin: 3px;
+}
+
+.chat img {
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.last_message {
+  color: #4f7485;
+
+}
 
 /* container destro =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 .container_right {
