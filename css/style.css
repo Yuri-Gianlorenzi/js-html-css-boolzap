@@ -263,22 +263,39 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  margin: 20px 0px;
+}
+
+.message {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message .timing {
+  display: flex;
+  justify-content: flex-end;
+  color: #b1b1b1;
 }
 
 .sent {
   background-color: #dcf8c6;
   border-radius: 10px;
-  width: 200px;
+  max-width: 75%;
   display: flex;
   justify-content: flex-end;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
 .received {
   background-color: #ffffff;
   display: flex;
-  width: 200px;
+  max-width: 75%;
   justify-content: flex-start;
   border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 /* right side input--------------------------------------- */
@@ -309,9 +326,9 @@ body {
 }
 
 .input_box .input_text {
-  /* flex-basis: calc(100% - 30%); */
+
   flex-basis: 84%;
-  /* background-color: red; */
+
 }
 
 .input_box .input_text input {
