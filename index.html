@@ -26,7 +26,8 @@
   </div>
 
 
-  <div id="app" class="container">
+  <div id="app" class="container dark_mode">
+
     <!-- contenitore generale di sinistra -->
     <div class="container_left">
 
@@ -34,9 +35,11 @@
       <div class="header_left">
         <!-- inizio contenitore con le info utente -->
         <div class="box_user">
-          <img src="img/Saitama.jpg" alt="user_avatar">
+          <!-- per l'immagine utente,usiamo v-bind -->
+          <img :src="user.avatar" alt="user_avatar">
           <div class="name_user">
-            Yuri Gianlorenzi
+            <!-- per inserire il nome, usiamo le graffe conindicazione all'interno dell'oggetto utente e key nome -->
+            {{user.name}}
           </div>
         </div>
         <!-- / contenitore info utente -->
@@ -314,7 +317,6 @@
       <!-- / input box -->
     </div>
     <!-- /contenitore di destra -->
-
 
 
   </div>
