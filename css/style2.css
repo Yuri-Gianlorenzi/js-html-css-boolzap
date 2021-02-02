@@ -1,0 +1,584 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL BODY========================================================*/
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dadbd4;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* tema scuro */
+body.dark_mode {
+  background-color: #1f1f1f;
+  color: #e1e1e3;
+}
+
+
+/* REGOLE GENERALI CURSORI */
+i {
+  cursor: pointer;
+}
+
+img {
+  cursor: pointer;
+}
+
+/* per la riga verde in background */
+.body_bg {
+  height: 150px;
+  width: 100%;
+  background-color: #009688;
+  z-index: -1;
+}
+
+/* / FINE GENERAL BODY============================================ */
+
+/* CONTAINER PRINCIPALE================================================*/
+.container {
+  position: absolute;
+  top: 30px;
+  min-width: 950px;
+  width: 80%;
+  height: 700px;
+  margin: auto;
+  background-color: #fafafa;
+  display: flex;
+}
+
+/* tema scuro */
+.dark_mode .container {
+  background-color: #131c21;
+}
+/* per il layout viene diviso il container generale in 2 colonne */
+
+
+/* WARNING CONTAINER SINISTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+.container_left {
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER SINISTRO------------------------------------------ */
+.header_left {
+  width: 100%;
+  min-height: 80px;
+  background-color: #eaeaea;
+  display: flex;
+}
+
+/* tema scuro */
+.dark_mode .header_left {
+  background-color: #323739;
+}
+
+
+.header_left .box_user {
+  height: 100%;
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+}
+
+.header_left .box_user img {
+  height: 60px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.header_left .box_user .name_user {
+  margin-left: 15px;
+}
+
+
+.header_left .action_user {
+  height: 100%;
+  width: 30%;
+}
+
+.header_left .action_user ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header_left .action_user ul li {
+  flex-basis: 100% / 3;
+  color: #b1b1b1;
+  list-style: none;
+  font-size: 22px;
+}
+
+/* tema scuro */
+.dark_mode .header_left .action_user ul li {
+  color: #aaacae;
+
+}
+
+
+
+
+/* NOTIFICHE SINISTRO ------------------------------------------------ */
+.notification_left {
+  width: 100%;
+  height: 80px;
+  background-color: #8edafc;
+  display: flex;
+  align-items: center;
+}
+
+/* tema scuro */
+.dark_mode .notification_left {
+  background-color: #36708b;
+}
+
+.notification_icon {
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* tema scuro */
+.dark_mode .notification_icon {
+  background-color: #323739;
+}
+
+.notification_icon i {
+  font-size: 25px;
+  color: #8edafc;
+}
+
+/* tema scuro */
+.dark_mode .notification_icon i {
+  color: #36708b;
+}
+
+.notification_action a {
+  color: #4f7485;
+}
+
+/* tema scuro */
+.dark_mode .notification_action a {
+  color: #b1b1b1;
+}
+
+
+/* RICERCA SINISTRO ------------------------------------------------------- */
+.search_left {
+  width: calc( 100% - 14px );
+  height: 50px;
+  background-color: white;
+  margin: 7px;
+  border: 0.1px solid rgba(222, 222, 222, 0.75);
+  display: flex;
+  align-items: center;
+}
+
+/* tema scuro */
+.dark_mode .search_left {
+  background-color: #323739;
+}
+
+.search_left i {
+  font-size: 20px;
+  color: #b1b1b1;
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
+
+.search_left input {
+  flex-grow: 2;
+  border: white;
+  height: 30px;
+}
+
+/* tema scuro */
+.dark_mode .search_left input {
+  border: #b1b1b1;
+  background-color: #323739;
+  color: #aaacae;
+}
+
+/* per eliminare il bordino che si forma quando viene selezionato l'input */
+.search_left input:focus {
+  outline-width: 0;
+}
+
+/* per colorare il suggerimento dell'input */
+::placeholder {
+  color: #c3c3c3;
+  opacity: 1;
+}
+
+
+
+/* CRONOLOGIA CHAT SINISTRO ----------------------------------------------- */
+
+.chat_chronology {
+  flex-grow: 2;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+/* per indicare la chat nella lista, selezionata dall'utente per vedere i messaggi */
+.chat_chronology .active {
+  background-color: #ebebeb;
+}
+
+/* tema scuro */
+.dark_mode .chat_chronology .active {
+  background-color: #323739;
+}
+
+.chat {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 0.1px solid rgb(222, 222, 222);
+  margin: 3px;
+}
+
+/* tema scuro */
+.dark_mode .chat {
+  border-bottom: 0.1px solid #b1b1b1;
+}
+
+/* per cambiare leggermente il colore quando siamo in hover sulla chat */
+.chat:hover {
+  background-color:  #f2f2f2;
+}
+
+/* tema scuro */
+.dark_mode .chat:hover {
+  background-color: #3c4549;
+}
+
+.chat img {
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+/* per fare in modo che la parte del nome utente e parte del messaggio prendano più spazio possibile */
+.content {
+  flex-grow: 2;
+}
+
+.last_message {
+  color: #4f7485;
+}
+
+.info_message {
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #c1c1c1;
+}
+
+/* tema scuro */
+.dark_mode .info_message {
+  color: #b1b1b1;
+}
+
+/* per non far vedere le icone silenzia e maggiori info */
+/* ci devo lavorare su per fare in modo che se decido di selenziare, almeno l'icona silenziata deve rimanere */
+.info_icon {
+  display: none;
+  justify-content: space-between;
+}
+
+.info_icon .silent {
+  margin-right: 6px;
+  display: block;
+}
+
+
+/* per fare in modo che con l'hover sul box della chat compaiano le 2 icone silenzia e more info */
+.chat:hover .info_icon {
+  display: flex;
+}
+
+.info_icon i {
+  color: #c1c1c1;
+  font-size: 20px;
+}
+
+
+
+/* WARNING CONTAINER DESTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+.container_right {
+  height: 100%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* HEADER RIGHT------------------------------------ */
+.header_right {
+  width: 100%;
+  min-height: 80px;
+  background-color: #eaeaea;
+  display: flex;
+  border-left: 0.1px solid rgb(222, 222, 222);
+}
+
+/* tema scuro */
+.dark_mode .header_right {
+  border-left: 0.1px solid #b1b1b1;
+  background-color: #323739;
+}
+
+
+.header_right .box_contact {
+  height: 100%;
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+}
+
+.header_right .box_contact img {
+  height: 60px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.header_right .box_contact .name_contact {
+  margin-left: 15px;
+}
+
+.header_right .box_contact .name_contact p {
+  font-size: 13px;
+  color: #4f7485;
+}
+
+
+.header_right .action_user {
+  height: 100%;
+  width: 20%;
+}
+
+.header_right .action_user ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header_right .action_user ul li {
+  flex-basis: 100% / 3;
+  color: #b1b1b1;
+  list-style: none;
+  font-size: 22px;
+}
+
+/* tema scuro */
+.dark_mode .header_right .action_user ul li {
+  color: #aaacae
+}
+
+
+/* CHAT BOX DI DESTRA ---------------------------------------------- */
+.chat_box {
+  width: 100%;
+  flex-grow: 2;
+  background-image: url('../img/mine.jpg');
+  overflow-y: scroll;
+  font-weight:  lighter;
+}
+
+/* tema scuro */
+.dark_mode .chat_box {
+  background-image: url('../img/dmode.jpg');
+}
+
+/* per il box, creiamo 2 classi, che rappresentano un'intera 'riga' del box chat, se è sent, la riga è formattata in maniera tale che il contenuto sia alla destra, mentre se è received, il contenuto della riga sarà a sinistra */
+
+/* classe che indica la riga se è un messaggio inviato */
+.text_line_sent {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* classe che indica la riga se è un messaggio ricevuto */
+.text_line_received {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0px;
+}
+
+/* classe per formattare i box messaggio in generale, per dividere testo e ora*/
+.message {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* per formattare l'ora in basso a destra */
+.message .timing {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #b1b1b1;
+}
+
+/* per non fare verdere l'icona del more info sul messaggio */
+.timing i {
+  display: none;
+}
+
+/* per aggiungere l'icona more info quando siamo sul box di un qualsiasi messaggio */
+.sent:hover .timing i,
+.received:hover .timing i {
+  display: block;
+  margin-left: 5px;
+}
+
+/* formattazione del contenitore messaggio specifico per quelli inviati dall'utente */
+.sent {
+  background-color: #dcf8c6;
+  border-radius: 10px;
+  max-width: 75%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 20px 5px 0px;
+  position: relative;
+}
+
+/* tema scuro */
+.dark_mode .sent {
+  background-color: #056162;
+}
+
+/* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore, attualmente è su tutte le nuvolette, provare a metterla solo alla prima di una serie di messaggi della stessa tipologia */
+div.first_s::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 15px solid #dcf8c6;
+  border-right: 15px solid transparent;
+  position: absolute;
+  top: 0;
+  right: -7px;
+}
+
+/* tema scuro */
+.dark_mode div.first_s::after {
+  border-top: 15px solid #056162;
+}
+
+/* formattazione del contenitore messaggio specifico per quelli ricevuti dall'utente */
+.received {
+  background-color: #ffffff;
+  display: flex;
+  max-width: 75%;
+  justify-content: flex-start;
+  border-radius: 10px;
+  margin: 5px 0px 5px 20px;
+  position: relative;
+}
+
+/* tema scuro */
+.dark_mode .received {
+  background-color: #262d31;
+}
+
+
+/* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore */
+div.first_r::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 15px solid #ffffff;
+  border-left: 15px solid transparent;
+  position: absolute;
+  top: 0;
+  left: -7px;
+}
+
+/* tema scuro */
+.dark_mode div.first_r::before {
+  border-top: 15px solid #262d31;
+}
+
+
+
+/* right side input--------------------------------------- */
+.input_box {
+  width: 100%;
+  height: 70px;
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* tema scuro */
+.dark_mode .input_box {
+  background-color: #1e2428;
+}
+
+.input_box .emoticon {
+  width: 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.input_box .vocal {
+  width: 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.input_box i {
+  font-size: 22px;
+  color: #b1b1b1;
+}
+
+/* tema scuro */
+.dark_mode .input_box i {
+  color: #aaacae;
+}
+
+.input_box .input_text {
+  flex-basis: 84%;
+}
+
+.input_box .input_text input {
+  width: 100%;
+  height: 30px;
+  border: 0.1px solid rgb(222, 222, 222);
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+/* tema scuro */
+.dark_mode .input_box .input_text input {
+  background-color: #33383b;
+  border: 0.1px solid rgb(222, 222, 222);
+  color: #aaacae;
+
+}
+
+/* per togliere la linea quando siamo in focus sull'input */
+.input_box .input_text input:focus {
+  outline-width: 0;
+}
