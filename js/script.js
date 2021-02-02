@@ -1,6 +1,7 @@
 var app = new Vue ({
   el : '#app',
   data : {
+    chatIndex : 0,
     user : {
       name : 'Yuri Gianlorenzi',
       avatar : 'img/Saitama.jpg'
@@ -10,7 +11,7 @@ var app = new Vue ({
       {
         name : 'Michele Pel di Carota',
         avatar : 'img/avatar_1.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '28/03/2020 10:10:40',
@@ -32,7 +33,7 @@ var app = new Vue ({
       {
         name : 'Marcello TopGun',
         avatar : 'img/avatar_2.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '27/03/2020 09:10:40',
@@ -44,11 +45,11 @@ var app = new Vue ({
       {
         name : 'Guglielmo Cancelli',
         avatar : 'img/avatar_3.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '29/03/2020 11:30:40',
-            text: 'Ma la sai l\'ultima? Marianna va in campagna',
+            text: 'Ma la sai l\'ultima? Marianna va in campagna... ',
             status: 'received'
           }
         ]
@@ -56,7 +57,7 @@ var app = new Vue ({
       {
         name : 'Marco Bafforosso',
         avatar : 'img/avatar_4.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '26/03/2020 20:10:40',
@@ -68,7 +69,7 @@ var app = new Vue ({
       {
         name : 'Jhonny Jogging',
         avatar : 'img/avatar_5.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '30/03/2020 06:10:40',
@@ -80,7 +81,7 @@ var app = new Vue ({
       {
         name : 'Melisandre',
         avatar : 'img/avatar_6.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '28/03/2020 10:10:40',
@@ -92,7 +93,7 @@ var app = new Vue ({
       {
         name : 'Uno Qualsiasi',
         avatar : 'img/avatar_7.jpg',
-        visible : true,
+        visible : false,
         messages : [
           {
             date : '28/03/2020 10:10:40',
@@ -103,5 +104,26 @@ var app = new Vue ({
       },
 
     ]//fine dati contatti
-  }//fine data
+  },//fine data
+
+  methods : {
+    showChat (indexContact) {
+      //qui indichiamo che una volta cliccato sulla chat a sinistra, la chat cliccata deve diventare visibile(= true), quindi prima si cicla nell'array dei contatti per portare tutte le visible + false, e po si da a quella selezionata (tramite indexContact) il visible = true
+
+      // qui utilizziamo la variabile catturata per assegnarla al chatIndex, questo ci tornerà utile per assegnare la classe active al contenitore/chat selezionato tramite un ciclo if dentro un v-bind per la classe
+      this.chatIndex = indexContact;
+
+
+      // controllo sull'array per portare tutte le key visible=false
+      this.contacts.forEach((element) => {
+        element.visible = false;
+      });
+
+      //qui assegnamo all'elemento selezionato, il valore true alla key visible
+      this.contacts[indexContact].visible = true;
+
+      console.log(this.contacts[indexContact]);
+      console.log(this.contacts);
+    }
+  }//fine methods
 });

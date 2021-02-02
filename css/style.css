@@ -190,6 +190,9 @@ img {
   align-items: center;
   border-bottom: 0.1px solid rgb(222, 222, 222);
   margin: 3px;
+  max-height: 80px;
+  /* overflow: hidden; */
+
 }
 
 /* per cambiare leggermente il colore quando siamo in hover sulla chat */
@@ -409,7 +412,10 @@ div.first_r::before {
   left: -7px;
 }
 
-
+/* per fare in modo che rompa la parola quando arriva al limite del contenitore */
+.text {
+  word-wrap: break-word;
+}
 
 
 

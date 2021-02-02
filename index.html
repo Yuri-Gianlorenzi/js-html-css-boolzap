@@ -26,7 +26,7 @@
   </div>
 
 
-  <div id="app" class="container dark_mode">
+  <div id="app" class="container">
 
     <!-- contenitore generale di sinistra -->
     <div class="container_left">
@@ -78,28 +78,12 @@
       <!-- inizio contenitore delle chat dell'utente -->
       <div class="chat_chronology">
         <!-- contenitore in cui sono inserite le ultime info della chat, la classe active si dovrebbe dare alla chat selezionata -->
-        <div class="chat active">
-          <img src="img/avatar_1.jpg" alt="#">
-          <!-- contenitore nome contatto e parte dell'ultimo messaggio -->
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <!-- contenitore con info sulla data e possibilità di silenziare/visionare ulteriori info -->
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
-        </div>
 
-        <div v-for='(contact, indexContact) in contacts' class="chat">
+        <!-- con v-for cicliamo ogni elemento dentro l'array contact, questo è necessario per il nome del contatto, l'ultimo messaggio con il contatto (gli ultimi messaggi verranno pushati dentro l'array con indice zero) e l'immagine del contatto(usiamo v-bind) -->
+
+        <!-- per assegnare la classe active, utilizziamo un v-bind con un if al suo interno: quando clicco, ottengo un determinato indexCode, tramite la funzione questo indexCode viene assegnato a chatIndexindex nei data, se questi 2 valori combaciano, allora il ciclo mi restituisce active, (combaciano sempre) -->
+
+        <div v-for='(contact, indexContact) in contacts' class="chat" :class="(indexContact == chatIndex) ? 'active' : ''" @click="showChat(indexContact)">
           <img :src="contact.avatar" alt="#">
           <!-- contenitore nome contatto e parte dell'ultimo messaggio -->
           <div class="content">
@@ -119,6 +103,10 @@
             </div>
           </div>
         </div>
+
+
+
+        <!-- ESEMPIO FORMATTAZIONE SINGOLA CASELLA NELLA CRONOLOGIA CHAT -->
         <!-- <div class="chat">
           <img src="img/avatar_2.jpg" alt="#">
           <div class="content">
@@ -136,102 +124,9 @@
               <div class="open_info"><i class="fas fa-chevron-down"></i></div>
             </div>
           </div>
-        </div>
-
-        <div class="chat">
-          <img src="img/avatar_3.jpg" alt="#">
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat">
-          <img src="img/avatar_4.jpg" alt="#">
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat">
-          <img src="img/avatar_5.jpg" alt="#">
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat">
-          <img src="img/avatar_6.jpg" alt="#">
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat">
-          <img src="img/avatar_7.jpg" alt="#">
-          <div class="content">
-            <div class="name">
-              Michele
-            </div>
-            <div class="last_message">
-              ciao bello
-            </div>
-          </div>
-          <div class="info_message">
-            <div class="date">14:08</div>
-            <div class="info_icon">
-              <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
-            </div>
-          </div>
         </div> -->
+
+
       </div>
       <!-- / conteintore cronologia chat -->
 
@@ -301,7 +196,7 @@
 
         <div class="text_line_received">
           <div class="message received first_r">
-            <div class="text">Ciao bello Lorem ipsum dolor sit amet, </div>
+            <div class="text">ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div>
             <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
           </div>
         </div>
