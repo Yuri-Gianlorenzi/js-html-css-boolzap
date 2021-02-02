@@ -141,9 +141,10 @@
 
         <!-- inizio contenitore info contatto chat active -->
         <div class="box_contact">
-          <img src="img/avatar_1.jpg" alt="#">
+          <!-- utilizziamo il fatto che chatIndex rappresenta la "posizione del contatto active" in ogni istante, quindi lo utilizziamo con v-bind per pescare la foto avatar nei data e il nome contatto -->
+          <img :src="contacts[chatIndex].avatar" alt="#">
           <div class="name_contact">
-            Michele
+            {{contacts[chatIndex].name}}
             <p class="last_access">
               Ultimo accesso
             </p>
