@@ -210,6 +210,7 @@ img {
 
 .last_message {
   color: #4f7485;
+  overflow: hidden;
 }
 
 .info_message {

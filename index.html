@@ -99,7 +99,27 @@
           </div>
         </div>
 
-        <div class="chat">
+        <div v-for='(contact, indexContact) in contacts' class="chat">
+          <img :src="contact.avatar" alt="#">
+          <!-- contenitore nome contatto e parte dell'ultimo messaggio -->
+          <div class="content">
+            <div class="name">
+              {{contact.name}}
+            </div>
+            <div class="last_message">
+              {{contact.messages[0].text}}
+            </div>
+          </div>
+          <!-- contenitore con info sulla data e possibilità di silenziare/visionare ulteriori info -->
+          <div class="info_message">
+            <div class="date">14:08</div>
+            <div class="info_icon">
+              <div class="silent"><i class="fas fa-volume-off"></i></div>
+              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="chat">
           <img src="img/avatar_2.jpg" alt="#">
           <div class="content">
             <div class="name">
@@ -211,7 +231,7 @@
               <div class="open_info"><i class="fas fa-chevron-down"></i></div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- / conteintore cronologia chat -->
 
