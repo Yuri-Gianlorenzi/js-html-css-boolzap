@@ -39,6 +39,26 @@ var app = new Vue ({
             date : '27/03/2020 09:10:40',
             text: 'Ma davvero Marianna va in campagna?',
             status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'Sicuro di non aver sbagliato chat?',
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ah scusa!',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'ooooooooooooooooooooooooooooooooooooooooooooooooooooooo',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ah scusa!',
+            status: 'received'
           }
         ]
       },
@@ -50,6 +70,21 @@ var app = new Vue ({
           {
             date : '29/03/2020 11:30:40',
             text: 'Ma la sai l\'ultima? Marianna va in campagna... ',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ciao bello Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'ooooooooooooooooooooooooooooooooooooooooooooooooooooooo',
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ah scusa!',
             status: 'received'
           }
         ]
@@ -63,6 +98,21 @@ var app = new Vue ({
             date : '26/03/2020 20:10:40',
             text: 'Dovremmo trovare il sostituto di Marianna',
             status: 'received'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ciao bello Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'ooooooooooooooooooooooooooooooooooooooooooooooooooooooo',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ah scusa!',
+            status: 'sent'
           }
         ]
       },
@@ -105,6 +155,12 @@ var app = new Vue ({
 
     ]//fine dati contatti
   },//fine data
+
+  computed : {
+    takeSent: function () {
+      
+    }
+  },//fine computed
 
   methods : {
     showChat (indexContact) {

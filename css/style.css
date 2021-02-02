@@ -324,22 +324,27 @@ img {
   font-weight:  lighter;
 }
 
-/* per il box, creiamo 2 classi, che rappresentano un'intera 'riga' del box chat, se è sent, la riga è formattata in maniera tale che il contenuto sia alla destra, mentre se è received, il contenuto della riga sarà a sinistra */
+/* per il box, creiamo 3 classi, la prima è quella generale, che prende in consegna tutta la riga, le altre 2 classi (sent & received) creano le rispettive zone dove si formeranno i messaggi */
 
-/* classe che indica la riga se è un messaggio inviato */
-.text_line_sent {
+/* classe che prende in consegna l'intera riga */
+.text_line {
   width: 100%;
   display: flex;
+}
+
+/* classe che inserisce il contenuto sulla destra della riga, quindi messaggi inviati */
+.sent {
   justify-content: flex-end;
 }
 
-/* classe che indica la riga se è un messaggio ricevuto */
-.text_line_received {
-  width: 100%;
-  display: flex;
+/* classe che inserisce il contenuto sulla sinistra della riga, quindi messaggi ricevuti */
+
+.received {
   justify-content: flex-start;
   margin: 20px 0px;
 }
+
+
 
 /* classe per formattare i box messaggio in generale, per dividere testo e ora*/
 .message {
@@ -362,14 +367,14 @@ img {
 }
 
 /* per aggiungere l'icona more info quando siamo sul box di un qualsiasi messaggio */
-.sent:hover .timing i,
-.received:hover .timing i {
+.sent_box:hover .timing i,
+.received_box:hover .timing i {
   display: block;
   margin-left: 5px;
 }
 
 /* formattazione del contenitore messaggio specifico per quelli inviati dall'utente */
-.sent {
+.sent_box {
   background-color: #dcf8c6;
   border-radius: 10px;
   max-width: 75%;
@@ -393,7 +398,7 @@ div.first_s::after {
 
 
 /* formattazione del contenitore messaggio specifico per quelli ricevuti dall'utente */
-.received {
+.received_box {
   background-color: #ffffff;
   display: flex;
   max-width: 75%;
