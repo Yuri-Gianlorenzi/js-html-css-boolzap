@@ -161,6 +161,19 @@ var app = new Vue ({
     takeMessages: function () {
       // qui usiamo un coomputed che mi restituisce un array contenente OGGETTI che rappresentano i messaggi dell'utente selezionato, tramite il chat index
       return this.contacts[this.chatIndex].messages;
+    },//fine takeMessages
+
+    takeLastInfo: function () {
+
+      let lastInfo = [];
+
+      this.contacts.forEach((element) => {
+        let positionLast = element.messages.length - 1;
+        console.log(positionLast);
+        lastInfo.push(element.messages[positionLast].text);
+      });
+
+      return lastInfo;
     }
   },//fine computed
 
