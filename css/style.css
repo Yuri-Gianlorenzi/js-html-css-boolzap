@@ -212,8 +212,13 @@ img {
   flex-grow: 2;
 }
 
+/* per evitare che il messaggio esca dal contenitore nel caso sia un messaggio lungo */
 .last_message {
   color: #4f7485;
+  display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  white-space: normal;
   overflow: hidden;
 }
 
@@ -258,6 +263,7 @@ img {
   width: 65%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 
@@ -318,7 +324,7 @@ img {
   width: 100%;
   height: calc( 100% - 120px);
   min-height: 100px;
-  flex-grow: 2;
+  /* flex-grow: 2; */
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
   font-weight:  lighter;

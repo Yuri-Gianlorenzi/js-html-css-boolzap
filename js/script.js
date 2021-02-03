@@ -69,7 +69,7 @@ var app = new Vue ({
         messages : [
           {
             date : '29/03/2020 11:30:40',
-            text: 'Ma la sai l\'ultima? Marianna va in campagna... ',
+            text: 'Ma la sai l\'ultima? Marianna va in campagna... labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
             status: 'received'
           },
           {
@@ -157,8 +157,9 @@ var app = new Vue ({
   },//fine data
 
   computed : {
-    takeSent: function () {
-      
+    takeMessages: function () {
+      // qui creiamo una funzione che crea
+      return this.contacts[this.chatIndex].messages;
     }
   },//fine computed
 
@@ -180,6 +181,7 @@ var app = new Vue ({
 
       console.log(this.contacts[indexContact]);
       console.log(this.contacts);
+      console.log(this.takeMessages);
     }
   }//fine methods
 });

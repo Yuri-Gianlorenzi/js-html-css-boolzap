@@ -176,45 +176,24 @@
           </div>
         </div>
 
+        <div v-for="(element, indexMessage) in takeMessages" class="text_line" :class="(element.status === 'received') ? 'received' : 'sent'">
+          {{element.text}}
+        </div>
+
         <!-- riga appartenente a un messaggio ricevuto -->
-        <div class="text_line received">
           <!-- porzione di riga dove viene visualizzato e formattato come ricevuto -->
           <!-- le classi first_r/first_s verranno usate per provare un'ulteriore formattazione -->
+        <!-- <div class="text_line received">
           <div class="message received_box first_r">
             <div class="text">
               Ciao bello Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
             <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="text_line sent">
-          <div class="message sent_box first_s">
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </div>
-            <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
-          </div>
-        </div>
 
-        <div class="text_line received">
-          <div class="message received_box first_r">
-            <div class="text">ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div>
-            <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
-          </div>
-        </div>
 
-        <div class="text_line sent">
-          <div class="message sent_box first_s">
-            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </div>
-            <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
-          </div>
-        </div>
-
-        <div class="text_line sent">
-          <div class="message sent_box first_s">
-            <div class="text">Lorem ipsum</div>
-            <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
-          </div>
-        </div>
       </div>
       <!-- / chat box -->
 
