@@ -187,7 +187,7 @@ var app = new Vue ({
 
     sendMessage (e, chatIndex) {
       // qui creiamo la funzione che inserisce il messaggio digitato nel relativo "contenitore" quando premiamo il tasto invio e abbiamo digitato almeno un carattere
-      console.log(e.keyCode);
+
       if (this.newText.length > 0 && e.keyCode == 13) {
 
         // con queste indicazioni, utilizzando il chatIndex come riferimento, andiamo nel relativo contatto e pushamo un intero oggetto dentro l'array messages. dentro l'oggetto si trova il testo digitato, lo status 'sent' e la data
@@ -195,9 +195,10 @@ var app = new Vue ({
         // this.contacts[this.chatIndex].messages.
         console.log(this.contacts[this.chatIndex].messages);
 
-        //qui creiamo una risposta istantanea al nostro messaggio
-        this.contacts[this.chatIndex].messages.push({date: '14:08', text: 'Error: 404', status: 'received'});
+        // qui creiamo la stessa funzione, ma dentro un set interval per fare in modo che compaia dopo un secondo dopo il press di enter, il messaggio è precompilato
+        setTimeout(() =>   this.contacts[this.chatIndex].messages.push({date: '14:08', text: 'Error: 404', status: 'received'}), 1000);
 
+        //alla fine di tutto svuotiamo il newtext, in tal modo si svuota anche l'input nella pagina e si evita di cancellare ogni volta il messaggio dopo averlo inviato
         this.newText = '';
       }
 
