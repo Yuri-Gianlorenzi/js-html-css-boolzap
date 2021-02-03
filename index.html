@@ -177,7 +177,11 @@
         </div>
 
         <div v-for="(element, indexMessage) in takeMessages" class="text_line" :class="(element.status === 'received') ? 'received' : 'sent'">
-          {{element.text}}
+
+          <div class="message" :class="(element.status === 'received') ? 'received_box first_r' : 'sent_box first_s'">
+            <div class="text">{{element.text}}</div>
+            <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
+          </div>
         </div>
 
         <!-- riga appartenente a un messaggio ricevuto -->
