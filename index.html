@@ -167,18 +167,19 @@
       <!-- inizio contenitore con la chat tra contatto active e utente -->
       <div class="chat_box">
 
-        <!-- riga appartenente a un messaggio inviato -->
-        <div class="text_line sent">
-          <!-- porzione di riga dove viene visualizzato e formattato come inviato -->
+        <!-- ESEMPIO FORMATTAZIONE DI UN MESSAGGIO INVIATO -->
+        <!-- <div class="text_line sent">
           <div class="message sent_box first_s">
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, </div>
             <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
           </div>
-        </div>
+        </div> -->
 
+        <!-- qui usiamo un v-for, cicla il takeMessages (che è un array che contiene come oggetti, le caratteristiche dei messaggi selezionati), in ogni oggetto dell'array abbiamo text, date e status-->
         <div v-for="(element, indexMessage) in takeMessages" class="text_line" :class="(element.status === 'received') ? 'received' : 'sent'">
 
           <div class="message" :class="(element.status === 'received') ? 'received_box first_r' : 'sent_box first_s'">
+            <!-- qui stampiamo tutti i messaggi per ogni elemento dell'array -->
             <div class="text">{{element.text}}</div>
             <div class="timing">14:08<i class="fas fa-chevron-down"></i></div>
           </div>
@@ -207,7 +208,7 @@
           <i class="far fa-smile"></i>
         </div>
         <div class="input_text">
-          <input type="text" placeholder="    Scrivi un messaggio">
+          <input type="text" placeholder="    Scrivi un messaggio" v-model="newText" @keyup="sendMessage">
         </div>
         <div class="vocal">
           <i class="fas fa-microphone"></i>

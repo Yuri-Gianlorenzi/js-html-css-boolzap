@@ -2,6 +2,7 @@ var app = new Vue ({
   el : '#app',
   data : {
     chatIndex : 0,
+    newText : '',
     user : {
       name : 'Yuri Gianlorenzi',
       avatar : 'img/Saitama.jpg'
@@ -151,14 +152,14 @@ var app = new Vue ({
             status: 'received'
           }
         ]
-      },
+      }
 
     ]//fine dati contatti
   },//fine data
 
   computed : {
     takeMessages: function () {
-      // qui creiamo una funzione che crea
+      // qui usiamo un coomputed che mi restituisce un array contenente OGGETTI che rappresentano i messaggi dell'utente selezionato, tramite il chat index
       return this.contacts[this.chatIndex].messages;
     }
   },//fine computed
@@ -182,6 +183,24 @@ var app = new Vue ({
       console.log(this.contacts[indexContact]);
       console.log(this.contacts);
       console.log(this.takeMessages);
-    }
+    },// fine showChat
+
+    sendMessage (e, chatIndex) {
+      // qui creiamo la funzione che inserisce il messaggio digitato nel relativo "contenitore" quando premiamo il tasto invio e abbiamo digitato almeno un carattere
+      console.log(e.keyCode);
+      if (this.newText.length > 0 && e.keyCode == 13) {
+
+        // con queste indicazioni, utilizzando il chatIndex come riferimento, andiamo nel relativo contatto e pushamo un intero oggetto dentro l'array messages. dentro l'oggetto si trova il testo digitato, lo status 'sent' e la data
+        this.contacts[this.chatIndex].messages.push({date: '14:08', text: this.newText, status: 'sent'});
+        // this.contacts[this.chatIndex].messages.
+        console.log(this.contacts[this.chatIndex].messages);
+
+        //qui creiamo una risposta istantanea al nostro messaggio
+        this.contacts[this.chatIndex].messages.push({date: '14:08', text: 'Error: 404', status: 'received'});
+
+        this.newText = '';
+      }
+
+    }//fine sendMessage
   }//fine methods
 });
