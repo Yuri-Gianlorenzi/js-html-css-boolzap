@@ -163,16 +163,21 @@ var app = new Vue ({
       return this.contacts[this.chatIndex].messages;
     },//fine takeMessages
 
-    takeLastInfo: function () {
-
+    takeLastMessage: function () {
+      //qui creiamo un array vuoto come variabile, qui verranno pushati, per ogni elemento di contacts, l'ultimo elemento-text dell'array messages, questo sarà il return della function e verrà utilizzato nel ciclo v-for della class chat. essendo un array contenetne l'ultimo messaggio di ogni contact ("convivono"), lo indicizziamo con l'incice del v-for e per ogni contatto, mi restituirà l'ultimo messaggio presente nei data
       let lastInfo = [];
 
+      //usiamo un foreach per ciclare ogni elemento di contacts
       this.contacts.forEach((element) => {
+
+        //creiamo una variabile che per ogni elemento, gli viene assegnato il numero dell'indice dell'ultimo elemento dell'array
         let positionLast = element.messages.length - 1;
-        console.log(positionLast);
+
+        //questo numero viene utilizzato per pushare dentro l'array vuoto il testo dell'utlimo messaggio
         lastInfo.push(element.messages[positionLast].text);
       });
 
+      //last info è dunque un array contenete, nello stesso ordine di contacts, l'ultimo messaggio di ogni contatto
       return lastInfo;
     }
   },//fine computed
