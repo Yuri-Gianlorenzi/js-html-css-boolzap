@@ -124,7 +124,7 @@ var app = new Vue ({
         visible : true,
         messages : [
           {
-            date : '30/03/2020 06:10:40',
+            date : moment('30/03/2020 06:10:40', moment.defaultFormat),
             text: 'Cha bello che è andare a correre con Marianna',
             status: 'received'
           }
@@ -136,7 +136,7 @@ var app = new Vue ({
         visible : true,
         messages : [
           {
-            date : '28/03/2020 10:10:40',
+            date : moment('28/03/2020 10:10:40', moment.defaultFormat),
             text: 'Ti va di sostituire Marianna',
             status: 'sent'
           }
@@ -182,9 +182,14 @@ var app = new Vue ({
       return lastInfo;
     },//fine takeLastMessage
 
-    search : function () {
-
-    }//fine search
+    takeLastTime : function () {
+      let lastTime = [];
+      this.contacts.forEach(element => {
+        let positionLast = element.messages.length - 1;
+        lastTime.push(element.messages[positionLast].date);
+      });
+      return lastTime;
+    }//fine timing
   },//fine computed
 
   methods : {
@@ -214,12 +219,12 @@ var app = new Vue ({
       if (this.newText.length > 0 && e.keyCode == 13) {
 
         // con queste indicazioni, utilizzando il chatIndex come riferimento, andiamo nel relativo contatto e pushamo un intero oggetto dentro l'array messages. dentro l'oggetto si trova il testo digitato, lo status 'sent' e la data
-        this.contacts[this.chatIndex].messages.push({date: '14:08', text: this.newText, status: 'sent'});
+        this.contacts[this.chatIndex].messages.push({date: moment(), text: this.newText, status: 'sent'});
         // this.contacts[this.chatIndex].messages.
         console.log(this.contacts[this.chatIndex].messages);
 
         // qui creiamo la stessa funzione, ma dentro un set interval per fare in modo che compaia dopo un secondo dopo il press di enter, il messaggio è precompilato
-        setTimeout(() =>   this.contacts[this.chatIndex].messages.push({date: '14:08', text: 'Error: 404', status: 'received'}), 1000);
+        setTimeout(() =>   this.contacts[this.chatIndex].messages.push({date: moment(), text: 'Error: 404', status: 'received'}), 1000);
 
         //alla fine di tutto svuotiamo il newtext, in tal modo si svuota anche l'input nella pagina e si evita di cancellare ogni volta il messaggio dopo averlo inviato
         this.newText = '';
