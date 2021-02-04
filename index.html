@@ -71,7 +71,7 @@
       <!-- inizio contenitore barra ricerca sulle chat utente -->
       <div class="search_left">
         <i class="fas fa-search"></i>
-        <input type="text" placeholder="Cerca o inizia una nuova chat">
+        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="searchContact">
       </div>
       <!-- / contenitore ricerca sinistro -->
 
@@ -83,7 +83,9 @@
 
         <!-- per assegnare la classe active, utilizziamo un v-bind con un if al suo interno: quando clicco, ottengo un determinato indexCode, tramite la funzione questo indexCode viene assegnato a chatIndexindex nei data, se questi 2 valori combaciano, allora il ciclo mi restituisce active, (combaciano sempre) -->
 
-        <div v-for='(contact, indexContact) in contacts' class="chat" :class="(indexContact == chatIndex) ? 'active' : ''" @click="showChat(indexContact)">
+        <!-- la condizione v-if serve per stampare il contatto nella chat se ha il valore true, nel caso un contatto abbia il valore false, non verrà stampato, tornerà utile nella ricerca -->
+
+        <div v-for='(contact, indexContact) in contacts' v-if="(contact.visible)" class="chat" :class="(indexContact == chatIndex) ? 'active' : ''" @click="showChat(indexContact)">
           <img :src="contact.avatar" alt="#">
           <!-- contenitore nome contatto e parte dell'ultimo messaggio -->
           <div class="content">
