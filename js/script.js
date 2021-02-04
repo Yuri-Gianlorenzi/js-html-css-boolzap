@@ -183,10 +183,16 @@ var app = new Vue ({
     },//fine takeLastMessage
 
     takeLastTime : function () {
+      //qui creiamo un'array che contiene SOLO L'ORARIO, creato usando slice sulla variabile che contiene la stringa data
       let lastTime = [];
       this.contacts.forEach(element => {
+        let time;
         let positionLast = element.messages.length - 1;
-        lastTime.push(element.messages[positionLast].date);
+        //time = element.messages[positionLast].date.slice(11);//si vedono anche i secondi
+        time = element.messages[positionLast].date.slice(11, 16);// così solo ore e minuti
+        console.log(time);
+        // time = time.slice(11);
+        lastTime.push(time);
       });
       return lastTime;
     }//fine timing
@@ -218,7 +224,7 @@ var app = new Vue ({
 
       if (this.newText.length > 0 && e.keyCode == 13) {
 
-        // WARNING nella key date, pushamo la data e l'orario usando moment.filter. il filter ci permette di formattare l'orario come quello già presente nei contacts
+        // WARNING nella key date, pushamo la data e l'orario usando moment.filter. il filter ci permette di formattare l'orario come quello già presente nei contacs
 
         // con queste indicazioni, utilizzando il chatIndex come riferimento, andiamo nel relativo contatto e pushamo un intero oggetto dentro l'array messages. dentro l'oggetto si trova il testo digitato, lo status 'sent' e la data
         this.contacts[this.chatIndex].messages.push({date: moment().format("DD/MM/YYYY HH:mm:ss"), text: this.newText, status: 'sent'});
