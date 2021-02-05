@@ -164,6 +164,19 @@ var app = new Vue ({
       return this.contacts[this.chatIndex].messages;
     },//fine takeMessages
 
+    takeTimeMessage  : function () {
+      //per formattare l'ora anche nel box messaggio, creiamo un computed collegato a takemessage(array contenente i messaggi della chat selezionata). qui cicliamo takeMessage, ad ogni elemento(ogni messaggio) prendiamo la parte di data che riguarda le ore, e viene pushato in un array vuoto. questo array, alla fine, sarà lungo tanto quanto take message, e i suoi elementi corrispondono esattamente all'ora del messaggio che è presente nell'array takemessage allo stesso indice
+      let timeMessage = [];
+
+      this.takeMessages.forEach(element => {
+        let textTime;
+        textTime = element.date.slice(11, 16);
+        console.log('textime' + textTime);
+        timeMessage.push(textTime);
+      });
+      return timeMessage;
+    },//fine takeTimeMessage
+
     takeLastMessage: function () {
       //qui creiamo un array vuoto come variabile, qui verranno pushati, per ogni elemento di contacts, l'ultimo elemento-text dell'array messages, questo sarà il return della function e verrà utilizzato nel ciclo v-for della class chat. essendo un array contenetne l'ultimo messaggio di ogni contact ("convivono"), lo indicizziamo con l'incice del v-for e per ogni contatto, mi restituirà l'ultimo messaggio presente nei data
       let lastInfo = [];

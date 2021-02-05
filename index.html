@@ -187,7 +187,7 @@
           <div class="message" :class="(element.status === 'received') ? 'received_box first_r' : 'sent_box first_s'">
             <!-- qui stampiamo tutti i messaggi per ogni elemento dell'array -->
             <div class="text">{{element.text}}</div>
-            <div class="timing">{{element.date}}<i class="fas fa-chevron-down"></i></div>
+            <div class="timing">{{takeTimeMessage[indexMessage]}}<i class="fas fa-chevron-down"></i></div>
           </div>
         </div>
 
