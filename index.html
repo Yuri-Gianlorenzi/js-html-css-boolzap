@@ -151,8 +151,9 @@
           <img :src="contacts[chatIndex].avatar" alt="#">
           <div class="name_contact">
             {{contacts[chatIndex].name}}
-            <p class="last_access">
-              Ultimo accesso
+            <p class="last_access" v-if='writing.length > 0'>{{writing}}</p>
+            <p class="last_access" v-else>
+              Ultimo accesso {{takeLastTime[chatIndex]}}
             </p>
           </div>
         </div>
@@ -187,7 +188,15 @@
           <div class="message" :class="(element.status === 'received') ? 'received_box first_r' : 'sent_box first_s'">
             <!-- qui stampiamo tutti i messaggi per ogni elemento dell'array -->
             <div class="text">{{element.text}}</div>
-            <div class="timing">{{takeTimeMessage[indexMessage]}}<i class="fas fa-chevron-down"></i></div>
+            <div class="timing">
+              {{takeTimeMessage[indexMessage]}}
+              <i class="fas fa-chevron-down" @click="openMessageInfo(indexMessage)"></i>
+              <!-- qui bisogna aggiungere show -->
+              <ul class="action_message show" v-if="takeMessages[indexMessage].open">
+                <li>Info messaggio</li>
+                <li>Cancella messaggio</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -214,7 +223,7 @@
           <i class="far fa-smile"></i>
         </div>
         <div class="input_text">
-          <input type="text" placeholder="    Scrivi un messaggio" v-model="newText" @keyup="sendMessage">
+          <input type="text" placeholder=" Scrivi un messaggio" v-model="newText" @keyup="sendMessage">
         </div>
         <div class="vocal">
           <i class="fas fa-microphone"></i>

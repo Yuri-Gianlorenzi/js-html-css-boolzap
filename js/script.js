@@ -4,6 +4,8 @@ var app = new Vue ({
     chatIndex : 0,
     newText : '',
     search : '',
+    writing : '',
+    clicked : false,
     user : {
       name : 'Yuri Gianlorenzi',
       avatar : 'img/Saitama.jpg'
@@ -124,7 +126,7 @@ var app = new Vue ({
         visible : true,
         messages : [
           {
-            date : ('30/03/2020 06:10:40'),
+            date : '30/03/2020 06:10:40',
             text: 'Cha bello che è andare a correre con Marianna',
             status: 'received'
           }
@@ -161,6 +163,14 @@ var app = new Vue ({
   computed : {
     takeMessages: function () {
       // qui usiamo un coomputed che mi restituisce un array contenente OGGETTI che rappresentano i messaggi dell'utente selezionato, tramite il chat index
+
+      let array = [];
+
+      this.contacts[this.chatIndex].messages.forEach(element => {
+        element.open = false;
+      });
+
+
       return this.contacts[this.chatIndex].messages;
     },//fine takeMessages
 
@@ -171,7 +181,7 @@ var app = new Vue ({
       this.takeMessages.forEach(element => {
         let textTime;
         textTime = element.date.slice(11, 16);
-        console.log('textime' + textTime);
+        // console.log('textime' + textTime);
         timeMessage.push(textTime);
       });
       return timeMessage;
@@ -203,7 +213,7 @@ var app = new Vue ({
         let positionLast = element.messages.length - 1;
         //time = element.messages[positionLast].date.slice(11);//si vedono anche i secondi
         time = element.messages[positionLast].date.slice(11, 16);// così solo ore e minuti
-        console.log(time);
+        // console.log(time);
         // time = time.slice(11);
         lastTime.push(time);
       });
@@ -244,13 +254,25 @@ var app = new Vue ({
         // this.contacts[this.chatIndex].messages.
         console.log(this.contacts[this.chatIndex].messages);
 
+        //qui facciamo in modo che prima di ricevere il messaggio, si veda la scritta
+        this.writing = 'Sta scrivendo...';
+
         // qui creiamo la stessa funzione, ma dentro un set interval per fare in modo che compaia dopo un secondo dopo il press di enter, il messaggio è precompilato
-        setTimeout(() =>   this.contacts[this.chatIndex].messages.push({date: moment().format("DD/MM/YYYY HH:mm:ss"), text: 'Error: 404', status: 'received'}), 1500);
+        setTimeout(() => {
+          //qui per eliminare la scritta prima di ricevere il messaggio, in modo da restituire la data dell'ultimo accesso
+          this.writing = '';
+
+          this.contacts[this.chatIndex].messages.push({date: moment().format("DD/MM/YYYY HH:mm:ss"), text: 'Error: 404', status: 'received'})
+
+        },1500);
+
+
 
 
 
         //alla fine di tutto svuotiamo il newtext, in tal modo si svuota anche l'input nella pagina e si evita di cancellare ogni volta il messaggio dopo averlo inviato
         this.newText = '';
+
       }
 
     },//fine sendMessage
@@ -268,7 +290,24 @@ var app = new Vue ({
             element.visible = false;
           }
       });
-    }//fine searchContact
+    },//fine searchContact
+
+    openMessageInfo (indexMessage) {
+
+      if (!this.contacts[this.chatIndex].messages[indexMessage].open) {
+
+        this.contacts[this.chatIndex].messages[indexMessage].open = true;
+      } else {
+        this.contacts[this.chatIndex].messages[indexMessage].open = false;
+      }
+
+
+
+
+      console.log(indexMessage);
+      console.log(this.takeMessages);
+      console.log(this.contacts);
+    }//fine openMessageInfo
 
   }//fine methods
 
