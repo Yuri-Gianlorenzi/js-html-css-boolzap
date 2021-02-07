@@ -21,8 +21,7 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script> -->
 </head>
 
-<!-- <body class="dark_mode"> -->
-<body>
+<body id="body">
 
   <div class="body_bg">
     <!-- per creare la riga verde di sfondo -->
@@ -62,10 +61,10 @@
       <!-- inizio contenitore per azione su notifiche -->
       <div class="notification_left">
         <div class="notification_icon">
-          <i class="fas fa-bell-slash"></i>
+          <i class="fas fa-adjust" onclick="darkMode()"></i>
         </div>
         <div class="notification_action">
-          <p>Ricevi notifiche di nuovi messaggi</p>
+          <p>Attiva la DarkMode</p>
           <a href="#">Attiva notifiche desktop</a>
         </div>
       </div>

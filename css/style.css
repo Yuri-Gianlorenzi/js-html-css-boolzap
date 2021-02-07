@@ -15,6 +15,11 @@ body {
   font-family: 'Hind Siliguri', sans-serif;
 }
 
+/* tema scuro */
+body.dark_mode {
+  background-color: #1f1f1f;
+  color: #e1e1e3;
+}
 
 /* REGOLE GENERALI CURSORI */
 i {
@@ -54,6 +59,11 @@ img {
 /* per il layout viene diviso il container generale in 2 colonne */
 
 
+/* tema scuro */
+.dark_mode .container {
+  background-color: #131c21;
+}
+
 /* WARNING CONTAINER SINISTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 .container_left {
   height: 100%;
@@ -68,6 +78,11 @@ img {
   min-height: 80px;
   background-color: #eaeaea;
   display: flex;
+}
+
+/* tema scuro */
+.dark_mode .header_left {
+  background-color: #323739;
 }
 
 
@@ -108,6 +123,12 @@ img {
   font-size: 22px;
 }
 
+/* tema scuro */
+.dark_mode .header_left .action_user ul li {
+  color: #aaacae;
+
+}
+
 
 
 
@@ -120,23 +141,49 @@ img {
   align-items: center;
 }
 
+/* tema scuro */
+.dark_mode .notification_left {
+  background-color: #36708b;
+}
+
+
 .notification_icon {
   background-color: white;
   border-radius: 50%;
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* tema scuro */
+.dark_mode .notification_icon {
+  background-color: #323739;
+}
+
 
 .notification_icon i {
   font-size: 25px;
   color: #8edafc;
 }
 
+/* tema scuro */
+.dark_mode .notification_icon i {
+  color: #36708b;
+}
+
+
+
 .notification_action a {
   color: #4f7485;
 }
 
+/* tema scuro */
+.dark_mode .notification_action a {
+  color: #b1b1b1;
+}
 
 /* RICERCA SINISTRO ------------------------------------------------------- */
 .search_left {
@@ -147,6 +194,10 @@ img {
   border: 0.1px solid rgba(222, 222, 222, 0.75);
   display: flex;
   align-items: center;
+}
+/* tema scuro */
+.dark_mode .search_left {
+  background-color: #323739;
 }
 
 .search_left i {
@@ -162,7 +213,12 @@ img {
   border: white;
   height: 30px;
 }
-
+/* tema scuro */
+.dark_mode .search_left input {
+  border: #b1b1b1;
+  background-color: #323739;
+  color: #aaacae;
+}
 /* per eliminare il bordino che si forma quando viene selezionato l'input */
 .search_left input:focus {
   outline-width: 0;
@@ -188,6 +244,10 @@ img {
 .chat_chronology .active {
   background-color: #ebebeb;
 }
+/* tema scuro */
+.dark_mode .chat_chronology .active {
+  background-color: #323739;
+}
 
 .chat {
   display: flex;
@@ -196,14 +256,21 @@ img {
   border-bottom: 0.1px solid rgb(222, 222, 222);
   margin: 3px;
   max-height: 80px;
-  /* overflow: hidden; */
-
+}
+/* tema scuro */
+.dark_mode .chat {
+  border-bottom: 0.1px solid #b1b1b1;
 }
 
 /* per cambiare leggermente il colore quando siamo in hover sulla chat */
 .chat:hover {
   background-color:  #f2f2f2;
 }
+/* tema scuro */
+.dark_mode .chat:hover {
+  background-color: #3c4549;
+}
+
 
 .chat img {
   height: 60px;
@@ -234,6 +301,10 @@ img {
   align-items: center;
   font-size: 12px;
   color: #c1c1c1;
+}
+/* tema scuro */
+.dark_mode .info_message {
+  color: #b1b1b1;
 }
 
 /* per non far vedere le icone silenzia e maggiori info */
@@ -279,6 +350,12 @@ img {
   display: flex;
   border-left: 0.1px solid rgb(222, 222, 222);
 }
+/* tema scuro */
+.dark_mode .header_right {
+  border-left: 0.1px solid #b1b1b1;
+  background-color: #323739;
+}
+
 
 .header_right .box_contact {
   height: 100%;
@@ -321,6 +398,10 @@ img {
   list-style: none;
   font-size: 22px;
 }
+/* tema scuro */
+.dark_mode .header_right .action_user ul li {
+  color: #aaacae
+}
 
 
 /* CHAT BOX DI DESTRA ---------------------------------------------- */
@@ -328,10 +409,13 @@ img {
   width: 100%;
   height: calc( 100% - 120px);
   min-height: 100px;
-  /* flex-grow: 2; */
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
   font-weight:  lighter;
+}
+/* tema scuro */
+.dark_mode .chat_box {
+  background-image: url('../img/dmode.jpg');
 }
 
 /* per il box, creiamo 3 classi, la prima è quella generale, che prende in consegna tutta la riga, le altre 2 classi (sent & received) creano le rispettive zone dove si formeranno i messaggi */
@@ -396,6 +480,10 @@ img {
   right: -10px;
   /* display: none; */
 }
+/* tema scuro */
+.dark_mode .message .timing .action_message {
+  background-color: #323739;
+}
 
 /* .message .timing .action_message .show {
   display: block;
@@ -411,7 +499,10 @@ img {
 .message .timing .action_message li:hover {
   background-color: #ebebeb;
 }
-
+/* tema scuro */
+.dark_mode .message .timing .action_message li:hover {
+  background-color: #1e2428;
+}
 /* formattazione del contenitore messaggio specifico per quelli inviati dall'utente */
 .sent_box {
   background-color: #dcf8c6;
@@ -421,6 +512,10 @@ img {
   justify-content: flex-end;
   margin: 5px 20px 5px 0px;
   position: relative;
+}
+/* tema scuro */
+.dark_mode .sent_box {
+  background-color: #056162;
 }
 
 /* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore, attualmente è su tutte le nuvolette, provare a metterla solo alla prima di una serie di messaggi della stessa tipologia */
@@ -434,6 +529,10 @@ div.first_s::after {
   top: 0;
   right: -7px;
 }
+/* tema scuro */
+.dark_mode div.first_s::after {
+  border-top: 15px solid #056162;
+}
 
 
 /* formattazione del contenitore messaggio specifico per quelli ricevuti dall'utente */
@@ -446,6 +545,10 @@ div.first_s::after {
   margin: 5px 0px 5px 20px;
   position: relative;
 }
+/* tema scuro */
+.dark_mode .received_box {
+  background-color: #262d31;
+}
 
 /* angolino creato cvon hover per renderla una nuvoletta, servirà per un tentativo di formattazione ulteriore */
 div.first_r::before {
@@ -457,6 +560,10 @@ div.first_r::before {
   position: absolute;
   top: 0;
   left: -7px;
+}
+/* tema scuro */
+.dark_mode div.first_r::before {
+  border-top: 15px solid #262d31;
 }
 
 /* per fare in modo che rompa la parola quando arriva al limite del contenitore */
@@ -474,10 +581,12 @@ div.first_r::before {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* position: fixed;
-  bottom: 0;
-  left: 50%; */
 }
+/* tema scuro */
+.dark_mode .input_box {
+  background-color: #1e2428;
+}
+
 
 .input_box .emoticon {
   width: 8%;
@@ -495,6 +604,11 @@ div.first_r::before {
   font-size: 22px;
   color: #b1b1b1;
 }
+/* tema scuro */
+.dark_mode .input_box i {
+  color: #aaacae;
+}
+
 
 .input_box .input_text {
   flex-basis: 84%;
@@ -507,8 +621,19 @@ div.first_r::before {
   border-radius: 20px;
   padding-left: 10px;
 }
+/* tema scuro */
+.dark_mode .input_box .input_text input {
+  background-color: #33383b;
+  border: 0.1px solid rgb(222, 222, 222);
+  color: #aaacae;
+
+}
+
 
 /* per togliere la linea quando siamo in focus sull'input */
 .input_box .input_text input:focus {
   outline-width: 0;
 }
+
+
+/* <i class="fas fa-adjust"></i> */

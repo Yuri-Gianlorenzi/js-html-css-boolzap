@@ -5,7 +5,6 @@ var app = new Vue ({
     newText : '',
     search : '',
     writing : '',
-    clicked : false,
     user : {
       name : 'Yuri Gianlorenzi',
       avatar : 'img/Saitama.jpg'
@@ -266,10 +265,6 @@ var app = new Vue ({
 
         },1500);
 
-
-
-
-
         //alla fine di tutto svuotiamo il newtext, in tal modo si svuota anche l'input nella pagina e si evita di cancellare ogni volta il messaggio dopo averlo inviato
         this.newText = '';
 
@@ -294,11 +289,11 @@ var app = new Vue ({
 
     openMessageInfo (indexMessage) {
 
-      if (!this.contacts[this.chatIndex].messages[indexMessage].open) {
+      if (!this.takeMessages[indexMessage].open) {
 
-        this.contacts[this.chatIndex].messages[indexMessage].open = true;
+        this.takeMessages[indexMessage].open = true;
       } else {
-        this.contacts[this.chatIndex].messages[indexMessage].open = false;
+        this.takeMessages[indexMessage].open = false;
       }
 
 
@@ -315,7 +310,12 @@ var app = new Vue ({
 });
 
 
+//javascript per la dark-mode
+function darkMode() {
+  let pippo = document.getElementById('body');
 
+  pippo.classList.toggle('dark_mode');
+}
 
 
 
