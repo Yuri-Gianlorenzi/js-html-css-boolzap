@@ -330,6 +330,10 @@ img {
   font-size: 20px;
 }
 
+.open_info{
+  position: relative;
+}
+
 .action_chat {
   width: 150px;
   /* height: 60px; */
@@ -340,6 +344,9 @@ img {
   top: 30px;
   right: -10px;
   display: none;
+}
+.action_chat.show {
+  display: block;
 }
 /* tema scuro */
 .dark_mode .action_chat {
