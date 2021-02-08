@@ -104,7 +104,13 @@
             <div class="date">{{takeLastTime[indexContact]}}</div>
             <div class="info_icon">
               <div class="silent"><i class="fas fa-volume-off"></i></div>
-              <div class="open_info"><i class="fas fa-chevron-down"></i></div>
+              <div class="open_info">
+                <i class="fas fa-chevron-down" @click="openChatInfo(indexContact)"></i>
+            <ul class="action_chat" :class="contacts[indexContact].chatInfo == true ? 'show' : ''">
+                  <li>Info messaggio</li>
+                  <li>Cancella messaggio</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +197,7 @@
               {{takeTimeMessage[indexMessage]}}
               <i class="fas fa-chevron-down" @click="openMessageInfo(indexMessage)"></i>
               <!-- qui bisogna aggiungere show -->
-              <ul class="action_message show" v-if="takeMessages[indexMessage].open">
+              <ul class="action_message show" v-if="contacts[chatIndex].messages[indexMessage].open">
                 <li>Info messaggio</li>
                 <li>Cancella messaggio</li>
               </ul>

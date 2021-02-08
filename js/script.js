@@ -2,6 +2,7 @@ var app = new Vue ({
   el : '#app',
   data : {
     chatIndex : 0,
+    messageIndex : 0,
     newText : '',
     search : '',
     writing : '',
@@ -170,6 +171,7 @@ var app = new Vue ({
       });
 
 
+
       return this.contacts[this.chatIndex].messages;
     },//fine takeMessages
 
@@ -218,7 +220,23 @@ var app = new Vue ({
       });
       return lastTime;
     }//fine timing
+
+
   },//fine computed
+
+  // watch : {
+  //   openMessageInfo : function (indexMessage) {
+  //     if (!this.contacts[this.chatIndex].messages[indexMessage].open) {
+  //
+  //       this.takeMessages[indexMessage].open = true;
+  //
+  //     } else {
+  //       this.takeMessages[indexMessage].open = false;
+  //
+  //
+  //     }
+  //   }
+  // },//fine watch
 
   methods : {
     showChat (indexContact) {
@@ -280,7 +298,7 @@ var app = new Vue ({
       this.contacts.forEach(element => {
           if (element.name.toLowerCase().includes(this.search.toLowerCase())) {
             element.visible = true;
-            console.log(element);
+            // console.log(element);
           } else {
             element.visible = false;
           }
@@ -289,20 +307,29 @@ var app = new Vue ({
 
     openMessageInfo (indexMessage) {
 
-      if (!this.takeMessages[indexMessage].open) {
+      this.messageIndex = indexMessage;
 
-        this.takeMessages[indexMessage].open = true;
-      } else {
-        this.takeMessages[indexMessage].open = false;
-      }
+     if (!this.contacts[this.chatIndex].messages[indexMessage].open) {
+
+       this.contacts[this.chatIndex].messages[indexMessage].open = true;
+
+     } else {
+       this.contacts[this.chatIndex].messages[indexMessage].open = false;
+
+
+     }
 
 
 
 
-      console.log(indexMessage);
-      console.log(this.takeMessages);
-      console.log(this.contacts);
-    }//fine openMessageInfo
+     console.log(this.messageIndex);
+     console.log(this.takeMessages);
+     console.log(this.contacts);
+   },//fine openMessageInfo
+
+   openChatInfo (indexContact) {
+     this.contacts[indexContact].chatInfo = true;
+   }
 
   }//fine methods
 
@@ -316,6 +343,9 @@ function darkMode() {
 
   pippo.classList.toggle('dark_mode');
 }
+
+
+// this.contacts[this.chatIndex].messages[indexMessage].open = !this.contacts[this.chatIndex].messages[indexMessage].open
 
 
 

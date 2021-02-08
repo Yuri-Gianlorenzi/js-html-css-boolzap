@@ -330,6 +330,40 @@ img {
   font-size: 20px;
 }
 
+.action_chat {
+  width: 150px;
+  /* height: 60px; */
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px #888888;
+  z-index: 10;
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  display: none;
+}
+/* tema scuro */
+.dark_mode .action_chat {
+  background-color: #323739;
+}
+
+.action_chat.show {
+  display: block;
+}
+
+.action_chat li {
+  list-style: none;
+  font-size: 14px;
+  padding-left: 10px;
+  color: #b1b1b1;
+}
+
+.action_chat li:hover {
+  background-color: #ebebeb;
+}
+/* tema scuro */
+.dark_mode .action_chat li:hover {
+  background-color: #1e2428;
+}
 
 
 /* WARNING CONTAINER DESTRO =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -478,16 +512,16 @@ img {
   position: absolute;
   top: 30px;
   right: -10px;
-  /* display: none; */
+  display: none;
 }
 /* tema scuro */
 .dark_mode .message .timing .action_message {
   background-color: #323739;
 }
 
-/* .message .timing .action_message .show {
+.message .timing .action_message.show {
   display: block;
-} */
+}
 
 .message .timing .action_message li {
   list-style: none;
