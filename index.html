@@ -188,7 +188,7 @@
         </div> -->
 
         <!-- qui usiamo un v-for, cicla il takeMessages (che è un array che contiene come oggetti, le caratteristiche dei messaggi selezionati), in ogni oggetto dell'array abbiamo text, date e status-->
-        <div v-for="(element, indexMessage) in takeMessages" class="text_line" :class="(element.status === 'received') ? 'received' : 'sent'">
+        <div v-for="(element, indexMessage) in contacts[chatIndex].messages" class="text_line" :class="(element.status === 'received') ? 'received' : 'sent'">
 
           <div class="message" :class="(element.status === 'received') ? 'received_box first_r' : 'sent_box first_s'">
             <!-- qui stampiamo tutti i messaggi per ogni elemento dell'array -->

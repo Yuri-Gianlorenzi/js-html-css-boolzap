@@ -164,11 +164,11 @@ var app = new Vue ({
     takeMessages: function () {
       // qui usiamo un coomputed che mi restituisce un array contenente OGGETTI che rappresentano i messaggi dell'utente selezionato, tramite il chat index
 
-      let array = [];
+      // let array = [];
 
-      this.contacts[this.chatIndex].messages.forEach(element => {
-        element.open = false;
-      });
+      // this.contacts[this.chatIndex].messages.forEach(element => {
+      //   element.open = false;
+      // });
 
 
 
@@ -179,7 +179,7 @@ var app = new Vue ({
       //per formattare l'ora anche nel box messaggio, creiamo un computed collegato a takemessage(array contenente i messaggi della chat selezionata). qui cicliamo takeMessage, ad ogni elemento(ogni messaggio) prendiamo la parte di data che riguarda le ore, e viene pushato in un array vuoto. questo array, alla fine, sarà lungo tanto quanto take message, e i suoi elementi corrispondono esattamente all'ora del messaggio che è presente nell'array takemessage allo stesso indice
       let timeMessage = [];
 
-      this.takeMessages.forEach(element => {
+      this.contacts[this.chatIndex].messages.forEach(element => {
         let textTime;
         textTime = element.date.slice(11, 16);
         // console.log('textime' + textTime);
@@ -256,7 +256,7 @@ var app = new Vue ({
 
       console.log(this.contacts[indexContact]);
       console.log(this.contacts);
-      console.log(this.takeMessages);
+      // console.log(this.takeMessages);
     },// fine showChat
 
     sendMessage (e) {
@@ -323,7 +323,7 @@ var app = new Vue ({
 
 
      console.log(this.messageIndex);
-     console.log(this.takeMessages);
+     // console.log(this.takeMessages);
      console.log(this.contacts);
    },//fine openMessageInfo
 
